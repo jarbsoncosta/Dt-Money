@@ -11,6 +11,12 @@ export const SummaryContainer = styled.section`
   gap: 2rem;
 
   margin-top: -5rem;
+
+  @media (max-width: 750px) {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
 `
 interface SummaryCardProps {
   variant?: 'green'
