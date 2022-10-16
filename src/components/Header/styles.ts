@@ -14,6 +14,11 @@ export const HeaderContent = styled.div`
   justify-content: space-between;
   align-items: center;
   background: ${(props) => props.theme['gray-900']};
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
 `
 export const NewTransactionButton = styled.button`
   border: 0;

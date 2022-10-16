@@ -3,10 +3,9 @@ import styled from 'styled-components'
 export const Container = styled.main`
   display: flex;
   width: 100%;
+  justify-content: center;
   max-height: 100vh;
-  max-width: 1120px;
-  margin: 0 auto 0;
-  padding: 0 1.5rem;
+  padding: 0 1rem;
 
   top: 50%;
   left: 50%;
@@ -18,11 +17,20 @@ export const FormInputs = styled.form`
   flex-direction: column;
   gap: 1rem;
   background: ${(props) => props.theme['gray-900']};
-  padding: 4rem;
+  padding: 3rem;
   width: 100%;
+  max-width: 32rem;
   border-radius: 8px;
   h1 {
     margin-bottom: 2rem;
+  }
+
+  .logo {
+    padding: 1rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
   }
 
   .divInput {
@@ -32,25 +40,35 @@ export const FormInputs = styled.form`
     border-radius: 6px;
     gap: 1rem;
     background: ${(props) => props.theme['gray-800']};
+
+    input {
+      width: 100%;
+      height: 3rem;
+      background: ${(props) => props.theme['gray-800']};
+      border: 0;
+      box-shadow: none;
+      color: ${(props) => props.theme['gray-100']};
+    }
+
+    &:focus-within {
+      box-shadow: 0 0 0 2px ${(props) => props.theme['green-500']};
+    }
   }
   button {
+    border: 0;
+    margin-top: 1rem;
     padding: 1rem;
     border-radius: 6px;
     background: ${(props) => props.theme['green-500']};
     cursor: pointer;
     color: ${(props) => props.theme.white};
-    font-weight: 700;
-    font-size: 1.2rem;
   }
-`
 
-export const InfoApp = styled.div`
-  width: 100%;
-`
-
-export const Input = styled.input`
-  width: 100%;
-  height: 3rem;
-  background: ${(props) => props.theme['gray-800']};
-  border: 0;
+  @media (max-width: 750px) {
+    padding: 2rem;
+    h1 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+  }
 `
