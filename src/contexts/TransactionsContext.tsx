@@ -1,4 +1,5 @@
 import { createContext, ReactNode, useEffect, useState } from 'react'
+import { api } from '../services/api'
 
 interface Transaction {
   id: number
@@ -20,13 +21,13 @@ export const TransactionsContext = createContext({} as TransactionContextType)
 export function TransactionsProvider({ children }: TransactionProviderProps) {
   const [transactions, setTransections] = useState<Transaction[]>([])
 
-  async function LoadTransactions() {
-    const response = await fetch('http://localhost:3333/transactions')
-    const data = await response.json()
-    setTransections(data)
-  }
   useEffect(() => {
-    LoadTransactions()
+    api
+      .get('transaction')
+      .then((response) => {
+        setTransections(response.data)
+      })
+      .catch((error) => console.log(error))
   }, [])
 
   return (

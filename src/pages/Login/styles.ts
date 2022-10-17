@@ -69,6 +69,20 @@ export const FormInputs = styled.form`
     }
   }
 
+  span {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    a {
+      text-decoration: none;
+      color: ${(props) => props.theme['green-700']};
+      font-weight: bold;
+      &:hover {
+        color: ${(props) => props.theme['green-500']};
+      }
+    }
+  }
+
   @media (max-width: 750px) {
     padding: 2rem;
     h1 {
