@@ -7,4 +7,7 @@ export default defineConfig({
   preview: {
     port: 4174,
   },
+  server: {
+    host: true,
+  },
 })
