@@ -4,7 +4,7 @@ import { Header } from '../../components/Header'
 import { SearchForm } from '../../components/SearchForm'
 import { Summary } from '../../components/Summary'
 import { TransactionsContext } from '../../contexts/TransactionsContext'
-import { useAuth } from '../../hooks/authContext'
+import * as Dialog from '@radix-ui/react-dialog'
 import { formatDate, formatPrice } from '../../utils/formatter'
 
 import {
@@ -13,6 +13,8 @@ import {
   Table,
   TransactionContainer,
 } from './styles'
+import { NewTransactionButton } from '../../components/Header/styles'
+import { NewTransactionModal } from '../../components/NewTransactionModal'
 
 export function Transactions() {
   const { transactions } = useContext(TransactionsContext)
@@ -20,7 +22,7 @@ export function Transactions() {
   return (
     <div>
       <Header />
-      <Summary />
+      <Summary />   
       <SearchForm />
       <TransactionContainer>
         <Table>

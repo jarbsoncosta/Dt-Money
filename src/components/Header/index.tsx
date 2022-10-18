@@ -1,17 +1,27 @@
-import { HeaderContainer, HeaderContent, NewTransactionButton } from './styles'
-import Logo from '../../assets/logo.svg'
+import { ContentLogo, HeaderContainer, HeaderContent, Logo, NewTransactionButton, UserLogged } from './styles'
 import * as Dialog from '@radix-ui/react-dialog'
 import { NewTransactionModal } from '../NewTransactionModal'
-import { Bank, TrendUp } from 'phosphor-react'
+import { Bank, Door } from 'phosphor-react'
+import { useAuth } from '../../hooks/authContext'
 
 export function Header() {
+  const {user, signOut}= useAuth()
   return (
     <HeaderContainer>
       <HeaderContent>
-        <div className="logo">
+        <ContentLogo className="logo-name">
+          <Logo >
           <Bank color="#00875F" size={40} />
           <h2>Finance</h2>
-        </div>
+          </Logo>
+       {user && 
+          <UserLogged>
+          <strong>Olaa !</strong>
+          <span>{user.name} </span>
+          <p title="Sair" onClick={signOut}><Door color="#F75A68" size={30} /></p>
+        </UserLogged>
+       }
+        </ContentLogo>
         <div>
           <Dialog.Root>
             <Dialog.Trigger asChild>

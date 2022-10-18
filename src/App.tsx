@@ -1,4 +1,5 @@
 import 'react-toastify/dist/ReactToastify.css' // O estilo do Toastify
+
 import { BrowserRouter } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 import { TransactionsProvider } from './contexts/TransactionsContext'

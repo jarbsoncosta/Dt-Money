@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import * as Dialog from '@radix-ui/react-dialog'
+
 
 export const HeaderContainer = styled.header`
   padding: 2.5rem 0 7.5rem;
@@ -14,11 +14,7 @@ export const HeaderContent = styled.div`
   justify-content: space-between;
   align-items: center;
   background: ${(props) => props.theme['gray-900']};
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
+  
 `
 export const NewTransactionButton = styled.button`
   border: 0;
@@ -27,10 +23,36 @@ export const NewTransactionButton = styled.button`
   font-weight: bold;
   padding: 1rem;
   border-radius: 6px;
-
   cursor: pointer;
   &:hover {
     background: ${(props) => props.theme['green-700']};
     transition: background-color 0.2s;
   }
+`
+export const ContentLogo = styled.div`
+  display: flex;
+    flex-direction: column;    
+    
+`
+export const Logo = styled.div`
+  display: flex;   
+    align-items: center;
+    gap: 0.5rem;
+   
+`
+export const UserLogged = styled.div`
+display: flex;
+align-items: center;
+gap: 0.5rem;
+strong{
+  color: ${(props) => props.theme['green-500']};
+}
+span{
+  color: ${(props) => props.theme['gray-500']};
+}
+p{
+
+  cursor: pointer;
+}
+
 `
