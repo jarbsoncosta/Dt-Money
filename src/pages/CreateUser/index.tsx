@@ -14,7 +14,6 @@ interface RequestUserProps {
   confirmPassword: string
 }
 
-/*
 const validatetionPost = zod.object({
   name: zod.string().min(1, 'Nome e sobrenome não pode ficar vazio'),
   email: zod.string().email({
@@ -23,7 +22,6 @@ const validatetionPost = zod.object({
   password: zod.string().min(8, 'Senha com minimo 8 caracteres'),
   confirmPassword: zod.string().min(8, 'Confirmação de senha não confere'),
 })
-*/
 
 export function CreateUser() {
   const history = useNavigate()
@@ -36,7 +34,7 @@ export function CreateUser() {
     setValue,
     watch,
   } = useForm<RequestUserProps>({
-    // resolver: zodResolver(validatetionPost),
+    resolver: zodResolver(validatetionPost),
   })
 
   function handleCreateNewUser(data: RequestUserProps) {
@@ -45,7 +43,7 @@ export function CreateUser() {
       .then(() => {
         toast.success('Cadastro realizado com sucesso!')
         reset()
-        history('/entrar')
+        history('/')
       })
       .catch((error) => {
         const { data } = error.response
@@ -64,10 +62,12 @@ export function CreateUser() {
           <User size={30} />
           <input type="email" placeholder="Seu E-mail" {...register('email')} />
         </div>
+        {errors.email?.message && <p>{errors.email?.message}</p>}
         <div className="divInput">
           <EnvelopeSimple size={30} />
           <input type="text" placeholder="Seu nome" {...register('name')} />
         </div>
+        {errors.name?.message && <p>{errors.name?.message}</p>}
         <div className="divInput">
           <LockKey size={30} />
           <input
@@ -76,6 +76,7 @@ export function CreateUser() {
             {...register('password')}
           />
         </div>
+        {errors.password?.message && <p>{errors.password?.message}</p>}
         <div className="divInput">
           <LockKey size={30} />
           <input
@@ -84,6 +85,9 @@ export function CreateUser() {
             {...register('confirmPassword')}
           />
         </div>
+        {errors.confirmPassword?.message && (
+          <p>{errors.confirmPassword?.message}</p>
+        )}
         <button type="submit"> Cadastrar</button>
       </FormInputs>
     </Container>

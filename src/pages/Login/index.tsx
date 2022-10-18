@@ -39,8 +39,10 @@ export function Login() {
 
       try {
         await signIn({ email, password })
-        // history('transacoes')
+        // history('/transacoes')
         window.location.replace('transacoes')
+        setUserEmail('')
+        setPassword('')
       } catch {
         toast.error('E-mail ou senha incorretos!')
       }

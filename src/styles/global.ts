@@ -16,6 +16,8 @@ body{
 }
 :focus{
     outline: 0;
+    -webkit-appearance: none;
+    -webkit-box-shadow: 0 0 0 2px${(props) => props.theme['green-500']};
     box-shadow: 0 0 0 2px ${(props) => props.theme['green-500']};
 }
 body, input, textarea, button{

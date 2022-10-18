@@ -25,6 +25,11 @@ export const FormInputs = styled.form`
     margin-bottom: 2rem;
   }
 
+  p {
+    color: ${(props) => props.theme['red-500']};
+    font-size: 0.875rem;
+  }
+
   .logo {
     padding: 1rem 0;
     display: flex;

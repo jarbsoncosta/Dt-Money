@@ -45,10 +45,21 @@ export const Content = styled(Dialog.Content)`
       cursor: pointer;
       margin-top: 1.5rem;
 
-      &:hover {
-        background: ${(props) => props.theme['green-700']};
-        transition: background-color 0.2s;
+      &:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
       }
+
+      &:not(:disabled):hover {
+        background: ${(props) => props.theme['green-700']};
+        color: ${(props) => props.theme.white};
+        border-color: ${(props) => props.theme['green-700']};
+        transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+      }
+    }
+    p {
+      color: ${(props) => props.theme['red-500']};
+      font-size: 0.875rem;
     }
   }
 `
@@ -67,6 +78,7 @@ export const TransactionType = styled(RadioGroup.Root)`
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
   margin-top: 0.5rem;
+  box-shadow: none;
 `
 
 interface TransactionTypeButtonProps {
