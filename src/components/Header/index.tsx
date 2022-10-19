@@ -1,7 +1,7 @@
 import { ContentLogo, HeaderContainer, HeaderContent, Logo, NewTransactionButton, UserLogged } from './styles'
 import * as Dialog from '@radix-ui/react-dialog'
 import { NewTransactionModal } from '../NewTransactionModal'
-import { Bank, Door } from 'phosphor-react'
+import { Bank, Door, Plus } from 'phosphor-react'
 import { useAuth } from '../../hooks/authContext'
 
 export function Header() {
@@ -25,7 +25,7 @@ export function Header() {
         <div>
           <Dialog.Root>
             <Dialog.Trigger asChild>
-              <NewTransactionButton>Nova transação</NewTransactionButton>
+              <NewTransactionButton><p>Nova transação </p><Plus size={32} /></NewTransactionButton>
             </Dialog.Trigger>
             <NewTransactionModal />
           </Dialog.Root>

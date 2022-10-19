@@ -23,10 +23,21 @@ export const NewTransactionButton = styled.button`
   font-weight: bold;
   padding: 1rem;
   border-radius: 6px;
+  svg{
+    display: none;
+  }
   cursor: pointer;
   &:hover {
     background: ${(props) => props.theme['green-700']};
     transition: background-color 0.2s;
+  }
+  @media (max-width: 500px) {
+    p{
+      display: none;
+    }
+    svg{
+      display: block;
+    }
   }
 `
 export const ContentLogo = styled.div`
