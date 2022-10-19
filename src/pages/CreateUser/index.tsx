@@ -1,5 +1,5 @@
-import { Bank, EnvelopeSimple, LockKey, User } from 'phosphor-react'
-import { useNavigate } from 'react-router-dom'
+import { ArrowLeft, Bank, EnvelopeSimple, LockKey, User } from 'phosphor-react'
+import { Link, useNavigate } from 'react-router-dom'
 import { api } from '../../services/api'
 import { Container, FormInputs } from './styles'
 import { useForm } from 'react-hook-form'
@@ -29,10 +29,8 @@ export function CreateUser() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
-    reset,
-    setValue,
-    watch,
+    formState: { errors, isSubmitting },
+    reset,  
   } = useForm<RequestUserProps>({
     resolver: zodResolver(validatetionPost),
   })
@@ -59,17 +57,17 @@ export function CreateUser() {
         </div>
         <h1>Crie sua conta</h1>
         <div className="divInput">
-          <User size={30} />
+          <User color="#00875F" size={30} />
           <input type="email" placeholder="Seu E-mail" {...register('email')} />
         </div>
         {errors.email?.message && <p>{errors.email?.message}</p>}
         <div className="divInput">
-          <EnvelopeSimple size={30} />
+          <EnvelopeSimple color="#00875F" size={30} />
           <input type="text" placeholder="Seu nome" {...register('name')} />
         </div>
         {errors.name?.message && <p>{errors.name?.message}</p>}
         <div className="divInput">
-          <LockKey size={30} />
+          <LockKey color="#00875F" size={30} />
           <input
             type="password"
             placeholder="Sua senha"
@@ -78,7 +76,7 @@ export function CreateUser() {
         </div>
         {errors.password?.message && <p>{errors.password?.message}</p>}
         <div className="divInput">
-          <LockKey size={30} />
+          <LockKey color="#00875F" size={30} />
           <input
             type="password"
             placeholder="Confirme sua senha"
@@ -88,7 +86,8 @@ export function CreateUser() {
         {errors.confirmPassword?.message && (
           <p>{errors.confirmPassword?.message}</p>
         )}
-        <button type="submit"> Cadastrar</button>
+        <button type="submit" disabled={isSubmitting}> Cadastrar</button>
+        <Link to="/"><ArrowLeft size={25}  weight="bold" /> voltar para login</Link>
       </FormInputs>
     </Container>
   )

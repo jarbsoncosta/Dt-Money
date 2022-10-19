@@ -3,7 +3,6 @@ import { ArrowCircleDown, ArrowCircleUp, X } from 'phosphor-react'
 import { useForm, Controller } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as zod from 'zod'
-import { toast } from 'react-toastify'
 import {
   CloseButton,
   Content,
@@ -11,17 +10,10 @@ import {
   TransactionType,
   TransactionTypeButton,
 } from './styles'
-import { api } from '../../services/api'
 import { useContext } from 'react'
 import { TransactionsContext } from '../../contexts/TransactionsContext'
 
-interface RequestTransactionProps {
-  description: string
-  type: 'income' | 'outcome'
-  category: string
-  price: number
-  createdAt?: string
-}
+
 
 const newTransactionSchema = zod.object({
   description: zod.string().min(1, 'Campo obrigatório'),
@@ -65,7 +57,7 @@ export function NewTransactionModal() {
             <input
               {...register('description')}
               type="text"
-              placeholder="Description"
+              placeholder="Descrição"
             />
             {errors.description?.message && (
               <p>{errors.description?.message}</p>

@@ -24,8 +24,10 @@ export const TransactionsContext = createContext({} as TransactionContextType)
 
 export function TransactionsProvider({ children }: TransactionProviderProps) {
   const [transactions, setTransections] = useState<Transaction[]>([])
+  const {user}= useAuth()
 
   async function getTransactions(query?: string) {
+   
     const response = await api.get('/transaction', {
       params: {
         q: query,
@@ -35,7 +37,9 @@ export function TransactionsProvider({ children }: TransactionProviderProps) {
     setTransections(response.data)
   }
   useEffect(() => {
+   if(user){
     getTransactions()
+   }
   }, [])
 
   // create new transaction

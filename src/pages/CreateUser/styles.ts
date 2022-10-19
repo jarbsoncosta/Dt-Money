@@ -68,9 +68,28 @@ export const FormInputs = styled.form`
     cursor: pointer;
     color: ${(props) => props.theme.white};
 
-    &:hover {
-      background: ${(props) => props.theme['green-700']};
-      transition: background-color 0.2s;
+    &:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+      }
+    &:not(:disabled):hover {
+        background: ${(props) => props.theme['green-700']};
+        color: ${(props) => props.theme.white};
+        border-color: ${(props) => props.theme['green-700']};
+        transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+      }
+  }
+
+  a{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: ${(props) => props.theme['green-700']};
+    &:hover{
+      color: ${(props) => props.theme['green-500']};
     }
   }
 

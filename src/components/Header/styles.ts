@@ -32,6 +32,8 @@ export const NewTransactionButton = styled.button`
     transition: background-color 0.2s;
   }
   @media (max-width: 500px) {
+    margin-top: 0.9rem;
+    padding: 0.5rem;
     p{
       display: none;
     }
