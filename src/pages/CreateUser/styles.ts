@@ -69,18 +69,18 @@ export const FormInputs = styled.form`
     color: ${(props) => props.theme.white};
 
     &:disabled {
-        opacity: 0.7;
-        cursor: not-allowed;
-      }
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
     &:not(:disabled):hover {
-        background: ${(props) => props.theme['green-700']};
-        color: ${(props) => props.theme.white};
-        border-color: ${(props) => props.theme['green-700']};
-        transition: background-color 0.2s, color 0.2s, border-color 0.2s;
-      }
+      background: ${(props) => props.theme['green-700']};
+      color: ${(props) => props.theme.white};
+      border-color: ${(props) => props.theme['green-700']};
+      transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    }
   }
 
-  a{
+  a {
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -88,7 +88,7 @@ export const FormInputs = styled.form`
     font-weight: bold;
     text-decoration: none;
     color: ${(props) => props.theme['green-700']};
-    &:hover{
+    &:hover {
       color: ${(props) => props.theme['green-500']};
     }
   }

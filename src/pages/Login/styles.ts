@@ -64,15 +64,15 @@ export const FormInputs = styled.form`
     color: ${(props) => props.theme.white};
 
     &:disabled {
-        opacity: 0.9;
-        cursor: not-allowed;
-      }
-      &:not(:disabled):hover {
-        background: ${(props) => props.theme['green-700']};
-        color: ${(props) => props.theme.white};
-        border-color: ${(props) => props.theme['green-700']};
-        transition: background-color 0.2s, color 0.2s, border-color 0.2s;
-      }
+      opacity: 0.9;
+      cursor: not-allowed;
+    }
+    &:not(:disabled):hover {
+      background: ${(props) => props.theme['green-700']};
+      color: ${(props) => props.theme.white};
+      border-color: ${(props) => props.theme['green-700']};
+      transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    }
   }
 
   p {

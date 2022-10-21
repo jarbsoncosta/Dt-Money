@@ -1,5 +1,5 @@
 import { CalendarBlank, TagSimple } from 'phosphor-react'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { Header } from '../../components/Header'
 import { SearchForm } from '../../components/SearchForm'
 import { Summary } from '../../components/Summary'
@@ -13,19 +13,30 @@ import {
   TransactionContainer,
 } from './styles'
 
-
 export function Transactions() {
-  
   const { transactions } = useContext(TransactionsContext)
 
+  const [searchTerm, setSearchTerm] = useState('')
+  function handleChange(event: any) {
+    setSearchTerm(event.target.value)
+  }
+
+  const results =
+    !searchTerm && !searchTerm
+      ? transactions
+      : transactions.filter((cust) =>
+          cust.description
+            .toLowerCase()
+            .includes(searchTerm.toLocaleLowerCase()),
+        )
   return (
     <div>
       <Header />
-      <Summary />   
-      <SearchForm />
+      <Summary />
+      <SearchForm handleChange={handleChange} />
       <TransactionContainer>
         <Table>
-          {transactions.map((transaction) => {
+          {results.map((transaction) => {
             return (
               <tr key={transaction.id}>
                 <td width="50%">{transaction.description} </td>
@@ -41,7 +52,7 @@ export function Transactions() {
             )
           })}
         </Table>
-        {transactions.map((transaction) => {
+        {results.map((transaction) => {
           return (
             <CardTransactionResponsive key={transaction.id}>
               <ul>

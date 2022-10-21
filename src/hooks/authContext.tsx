@@ -66,11 +66,10 @@ const AuthProvider = ({ children }: any) => {
     setToken({ token, user })
   }, [])
 
-  const signOut = useCallback(() => { 
+  const signOut = useCallback(() => {
     localStorage.removeItem('@financa:token')
     localStorage.removeItem('@financa:user')
     setToken({} as TokenState)
-   
   }, [])
 
   // verificar se existe um token no localstorage

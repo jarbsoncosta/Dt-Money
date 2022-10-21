@@ -13,13 +13,11 @@ import {
 import { useContext } from 'react'
 import { TransactionsContext } from '../../contexts/TransactionsContext'
 
-
-
 const newTransactionSchema = zod.object({
-  description: zod.string().min(1, 'Campo obrigatório'),
+  description: zod.string().min(1, '* Campo obrigatório'),
   type: zod.enum(['income', 'outcome']),
-  category: zod.string().min(1, 'Campo obrigatório'),
-  price: zod.number().min(1, 'Campo obrigatório'),
+  category: zod.string().min(1, '* Campo obrigatório'),
+  price: zod.number({ invalid_type_error: '* Campo obrigatório' }),
 })
 
 type SearchFormInputs = zod.infer<typeof newTransactionSchema>

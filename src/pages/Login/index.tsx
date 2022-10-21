@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { useAuth } from '../../hooks/authContext'
 import { Container, FormInputs } from './styles'
-import { validateEmail, validatePassword } from '../../utils/validate';
+import { validateEmail, validatePassword } from '../../utils/validate'
 export function Login() {
   const { signIn } = useAuth()
 
@@ -14,24 +14,21 @@ export function Login() {
   const [password, setPassword] = useState('')
   const [inputPassordErr, setInputPasswordErr] = useState(false)
 
-  
   const validate = () => {
     if (!validateEmail.test(email)) {
       setEmailErr(true)
     } else {
       setEmailErr(false)
     }
-   
   }
 
-  const passwordValidate= () => {
+  const passwordValidate = () => {
     if (!validatePassword.test(password)) {
       setInputPasswordErr(true)
     } else {
       setInputPasswordErr(false)
     }
   }
-  
 
   useEffect(() => {
     localStorage.removeItem('@financa:token')
@@ -81,7 +78,9 @@ export function Login() {
             onChange={(event) => setUserEmail(event.target.value)}
           />
         </div>
-        {emailErr && <p>* Eita, esse e-mail não parece correto - email@test.com</p>}
+        {emailErr && (
+          <p>* Eita, esse e-mail não parece correto - email@test.com</p>
+        )}
         <div className="divInput">
           <LockKey color="#00875F" size={30} />
           <input
@@ -91,10 +90,10 @@ export function Login() {
             onChange={(event) => setPassword(event.target.value)}
           />
         </div>
-        {inputPassordErr &&
-        <p>* Precisa ter 8 caracteres ou mais</p>
-        }
-        <button disabled={disableButtonIfInputIsEmpty}  type="submit">Entrar</button>
+        {inputPassordErr && <p>* Precisa ter 8 caracteres ou mais</p>}
+        <button disabled={disableButtonIfInputIsEmpty} type="submit">
+          Entrar
+        </button>
         <span>
           Não tem uma conta? <Link to="/cadastro"> Registre-se</Link>
         </span>

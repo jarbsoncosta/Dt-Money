@@ -10,47 +10,42 @@ export const Form = styled.form`
   width: 100%;
   display: flex;
   align-items: center;
-  gap: 1rem;
 
   input {
     padding-left: 1rem;
     border: 0;
     border-radius: 6px;
     width: 100%;
-    max-width: 59.6rem;
+    max-width: 56.9rem;
     height: 3.37rem;
     background: ${(props) => props.theme['gray-900']};
     color: ${(props) => props.theme['gray-100']};
   }
-  button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.75rem;
-    color: ${(props) => props.theme['green-300']};
-    background: transparent;
-    border: 0;
-    border: 1px solid ${(props) => props.theme['green-300']};
-    border-radius: 6px;
-    padding: 1rem;
-
-    cursor: pointer;
-
-    &:disabled {
-      opacity: 0.7;
-      cursor: not-allowed;
+`
+export const NewTransactionButton = styled.button`
+  max-width: 11rem;
+  border: 0;
+  margin-left: 1rem;
+  background: ${(props) => props.theme['green-500']};
+  color: ${(props) => props.theme.white};
+  font-weight: bold;
+  padding: 1rem;
+  border-radius: 6px;
+  svg {
+    display: none;
+  }
+  cursor: pointer;
+  &:hover {
+    background: ${(props) => props.theme['green-700']};
+    transition: background-color 0.2s;
+  }
+  @media (max-width: 500px) {
+    padding: 0.5rem;
+    p {
+      display: none;
     }
-
-    &:not(:disabled):hover {
-      background: ${(props) => props.theme['green-500']};
-      color: ${(props) => props.theme.white};
-      border-color: ${(props) => props.theme['green-500']};
-      transition: background-color 0.2s, color 0.2s, border-color 0.2s;
-    }
-    @media (max-width: 750px) {
-      p {
-        display: none;
-      }
+    svg {
+      display: block;
     }
   }
 `

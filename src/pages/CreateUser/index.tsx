@@ -30,7 +30,7 @@ export function CreateUser() {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-    reset,  
+    reset,
   } = useForm<RequestUserProps>({
     resolver: zodResolver(validatetionPost),
   })
@@ -86,8 +86,13 @@ export function CreateUser() {
         {errors.confirmPassword?.message && (
           <p>{errors.confirmPassword?.message}</p>
         )}
-        <button type="submit" disabled={isSubmitting}> Cadastrar</button>
-        <Link to="/"><ArrowLeft size={25}  weight="bold" /> voltar para login</Link>
+        <button type="submit" disabled={isSubmitting}>
+          {' '}
+          Cadastrar
+        </button>
+        <Link to="/">
+          <ArrowLeft size={25} weight="bold" /> voltar para login
+        </Link>
       </FormInputs>
     </Container>
   )
